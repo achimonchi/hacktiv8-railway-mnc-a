@@ -1,6 +1,7 @@
 package main
 
 import (
+	"os"
 	"sesi7/config"
 	"sesi7/repository/gorm"
 	"sesi7/server"
@@ -30,5 +31,5 @@ func main() {
 	productHandler := controller.NewProductController(productRepo)
 
 	router := gin.Default()
-	server.NewRouter(router, userHandler, productHandler).Start(":80")
+	server.NewRouter(router, userHandler, productHandler).Start(os.Getenv("PORT"))
 }
