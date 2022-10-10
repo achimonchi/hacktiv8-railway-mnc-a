@@ -42,7 +42,7 @@ func ConnectGorm() (*gorm.DB, error) {
 
 	if !db.Migrator().HasColumn(model.Product{}, "title") {
 	}
-	db.Debug().AutoMigrate(model.Product{})
+	db.Debug().AutoMigrate(model.Product{}, model.User{})
 
 	return db, nil
 }
