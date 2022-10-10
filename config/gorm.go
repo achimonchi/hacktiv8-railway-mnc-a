@@ -2,6 +2,7 @@ package config
 
 import (
 	"fmt"
+	"os"
 	"sesi7/model"
 
 	"gorm.io/driver/postgres"
@@ -9,6 +10,12 @@ import (
 )
 
 func ConnectGorm() (*gorm.DB, error) {
+
+	host = os.Getenv("POSTGRES_HOST")
+	port = os.Getenv("POSTGRES_PORT")
+	user = os.Getenv("POSTGRES_USER")
+	pass = os.Getenv("POSTGRES_PASS")
+	dbname = os.Getenv("POSTGRES_DBNAME")
 	dsn := fmt.Sprintf(
 		"host=%s port=%s user=%s password=%s dbname=%s sslmode=disable",
 		host, port, user, pass, dbname,

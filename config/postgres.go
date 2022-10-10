@@ -7,7 +7,7 @@ import (
 	_ "github.com/lib/pq"
 )
 
-const (
+var (
 	host   = "localhost"
 	port   = "8881"
 	user   = "nbcamp-user"
@@ -20,6 +20,7 @@ func ConnectPostgres() (*sql.DB, error) {
 		"host=%s port=%s user=%s password=%s dbname=%s sslmode=disable",
 		host, port, user, pass, dbname,
 	)
+	fmt.Println(dsn)
 
 	db, err := sql.Open("postgres", dsn)
 	if err != nil {
