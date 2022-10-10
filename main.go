@@ -31,5 +31,5 @@ func main() {
 	productHandler := controller.NewProductController(productRepo)
 
 	router := gin.Default()
-	server.NewRouter(router, userHandler, productHandler).Start(os.Getenv("PORT"))
+	server.NewRouter(router, userHandler, productHandler).Start(":" + os.Getenv("PORT"))
 }
